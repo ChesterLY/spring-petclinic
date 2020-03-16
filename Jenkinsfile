@@ -18,5 +18,14 @@ pipeline {
                 bat './mvnw package'
             }  
         }
+           
+        stage('Deploy'){
+            when {
+                branch 'master'
+            }
+            steps{
+                bat './mvnw deploy'
+            }   
+        }
     }
 }
